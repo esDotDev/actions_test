@@ -23,7 +23,7 @@ jobs:
     - name: Upload APK
       uses: actions/upload-artifact@master
       with:
-        name: apk-build
+        name: apk-build1
         path: build/app/outputs/bundle/release
 
   build_apk2:
@@ -42,5 +42,43 @@ jobs:
     - name: Upload APK
       uses: actions/upload-artifact@master
       with:
-        name: apk-build
+        name: apk-build2
+        path: build/app/outputs/bundle/release
+
+  build_apk3:
+    name: Build Flutter (Android)
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-java@v1
+      with:
+        java-version: '12.x'
+    - uses: subosito/flutter-action@v1
+      with:
+          channel: 'dev'
+    - run: flutter pub get
+    - run: flutter build appbundle
+    - name: Upload APK
+      uses: actions/upload-artifact@master
+      with:
+        name: apk-build3
+        path: build/app/outputs/bundle/release
+
+  build_apk4:
+    name: Build Flutter (Android)
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-java@v1
+      with:
+        java-version: '12.x'
+    - uses: subosito/flutter-action@v1
+      with:
+          channel: 'dev'
+    - run: flutter pub get
+    - run: flutter build appbundle
+    - name: Upload APK
+      uses: actions/upload-artifact@master
+      with:
+        name: apk-build4
         path: build/app/outputs/bundle/release
