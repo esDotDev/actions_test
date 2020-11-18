@@ -80,5 +80,5 @@ jobs:
     - name: Upload APK
       uses: actions/upload-artifact@master
       with:
-        name: apk-build4
+        name: apk-build4_
         path: build/app/outputs/bundle/release
